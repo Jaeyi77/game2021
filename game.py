@@ -14,9 +14,9 @@ event = {
     '적 비행기가 왼쪽으로 미사일 발사!' : '2',
     '적 비행기가 오른쪽으로 미사일 발사!' : '3'
 }
+##게임의 이벤트 발생을 위한 딕셔너리
 
-
-def game(computer, mine):
+def game(computer, mine): ##게임의 이벤트와 사용자의 선택에 따라 나오는 출력함수
     result = '0'
     if event[computer] == '1' and mine == '1' :
         result = '적비행기를 격추시켰습니다!'
@@ -35,18 +35,18 @@ while True :
     import random
     list = ['적 비행기 출현!', '적 비행기가 오른쪽으로 미사일 발사!', '적 비행기가 왼쪽으로 미사일 발사!']
     enemy = random.choice(list)
-    print('{}'.format(enemy))
+    print('{}'.format(enemy)) ##적 비행기의 이벤트를 랜덤으로 생성
     print('')
     print('1.미사일 발사 2.오른쪽이동 3.왼쪽이동 4.종료')
-    number = input('숫자를 입력하세요: ')
+    number = input('숫자를 입력하세요: ') ##사용자 선택을 인풋
 
-    if number == '4' :
+    if number == '4' : ##4번을 선택하면 게임 종료
         break
-    elif (number != '1') and (number != '2') and (number != '3') and (number != '4') :
+    elif (number != '1') and (number != '2') and (number != '3') and (number != '4') : ##다른 값을 인풋했을 때 올바른 값을 입력하라고 하고 브레이크
         print('올바른 값을 입력하세요.')
         print('게임오버...')
         break
-    else : 
+    else : ## 입력값에 맞게 이벤트 출력
         print('당신의 입력값? ', number)
         print('{}'.format(game(enemy, number)))
         print('')
